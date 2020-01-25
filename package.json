@@ -1,0 +1,8 @@
+{
+  "name": "react-boilerplate",
+  "version": "1.0.0",
+  "description": "Boilerplate fo react application",
+  "main": "index.js",
+  "author": "Sergey Korepanov",
+  "license": "MIT"
+}
