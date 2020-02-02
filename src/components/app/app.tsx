@@ -15,7 +15,7 @@ const App: React.FC<TProps> = ({ title }) => {
             <hr/>
             <HelloWorld />
         </div>
-    )
-}
+    );
+};
 
 export { App };

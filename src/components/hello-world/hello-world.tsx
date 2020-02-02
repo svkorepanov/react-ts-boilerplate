@@ -14,7 +14,7 @@ const HelloWorld: React.FC<TProps> = () => {
         <div className={ cn() }>
             <h5 className={ cn('title') } >Hello world!</h5>
         </div>
-    )
-}
+    );
+};
 
-export { HelloWorld }
+export { HelloWorld };
