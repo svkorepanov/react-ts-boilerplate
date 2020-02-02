@@ -1,3 +1,8 @@
 .hello-world {
-    color: #cc0;
+    border: 1px solid darkgray;
+
+    &__title {
+        color: var(--color-red);
+        font-size: 12px;
+    }
 }

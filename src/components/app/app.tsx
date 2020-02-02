@@ -1,5 +1,7 @@
 import React from 'react';
 
+import './app.css';
+
 import { HelloWorld } from '../hello-world/hello-world';
 
 type TProps = {

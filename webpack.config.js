@@ -5,6 +5,7 @@ const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const TerserWebpackPlugin = require('terser-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const StylelintWebpackPlugin = require('stylelint-webpack-plugin');
 
 const isProduction = process.env.NODE_ENV === 'production';
 const isDev = !isProduction;
@@ -29,10 +30,12 @@ const optimization = () => {
             new TerserWebpackPlugin()
         ]
     }
+
+    return config;
 }
 
-const cssLoaders = (extraLoaders) => {
-    const loaders = [
+const cssLoaders = () => {
+    return [
         {
             // for compilation css directly to css
             loader: MiniCssExtractPlugin.loader,
@@ -41,21 +44,18 @@ const cssLoaders = (extraLoaders) => {
                 reloadAll: true
             }
         },
-        'css-loader'
+        'css-loader',
+        'postcss-loader'
     ]
-
-    if (extraLoaders) {
-        loaders.push(extraLoaders);
-    }
-
-    return loaders;
 }
 
 module.exports = {
     context: path.resolve(__dirname, 'src'),
     mode,
     devtool,
-    entry: './index.tsx',
+    entry: {
+        main: './index.tsx'
+    },
     devServer: {
         port: 8080,
         hot: isDev
@@ -82,6 +82,7 @@ module.exports = {
             },
             {
                 test: /\.css$/,
+                exclude: /node_modules/,
                 use: cssLoaders()
             }
         ]
@@ -102,6 +103,11 @@ module.exports = {
         ]),
         new MiniCssExtractPlugin({
             filename: filename('css'),
+        }),
+        new StylelintWebpackPlugin({
+            context: path.resolve(__dirname, 'src'),
+            files: '**/*.css',
+            failOnError: isProduction
         })
     ]
 }
