@@ -19,8 +19,19 @@ const filename = (extension) => isDev ? `[name].${extension}` : `[name].[content
 
 const optimization = () => {
     const config = {
+        chunkIds: 'named',
         splitChunks: {
-            chunks: 'all'
+            cacheGroups: {
+                vendor: {
+                    test: /node_modules/,
+                    chunks: 'initial',
+                    name: 'vendor',
+                    priority: 10,
+                    filename: filename('js'),
+                    enforce: true
+
+                }
+            }
         }
     };
 

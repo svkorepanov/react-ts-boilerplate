@@ -3,9 +3,13 @@ import { createCn } from 'bem-react-classname';
 
 import './hello-world.css';
 
+type TProps = {
+    someProp?: string;
+}
+
 const cn = createCn('hello-world');
 
-const HelloWorld: React.FC<{}> = () => {
+const HelloWorld: React.FC<TProps> = () => {
     return (
         <div className={ cn() }>
             <h5 className={ cn('title') } >Hello world!</h5>
