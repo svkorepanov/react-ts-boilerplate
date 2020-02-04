@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 
 import { App } from './components/app/app';
 
-const REACT_HEADING = 'REACT + TS';
+const REACT_HEADING = 'REACT + TS husky';
 
 ReactDOM.render(
     <App titleHeading={ REACT_HEADING } />,

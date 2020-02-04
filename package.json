@@ -51,11 +51,11 @@
     "react": "16.12.0",
     "react-dom": "16.12.0"
   },
-  "husky": {
-    "pre-commit": "tsc --noEmit && lint-staged"
-  },
   "lint-staged": {
     "src/**/*.(js|jsx|ts|tsx)": "npm run eslint",
     "*.css": "stylelint"
+  },
+  "husky": {
+    "pre-commit": "lint-staged"
   }
 }
