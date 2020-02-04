@@ -5,13 +5,14 @@ import './app.css';
 import { HelloWorld } from '../hello-world/hello-world';
 
 type TProps = {
-    title: string;
-}
+    titleHeading: string;
+};
 
-const App: React.FC<TProps> = ({ title }) => {
+const App: React.FC<TProps> = ({ titleHeading }) => {
     return (
         <div>
-            <h1>{ title }</h1>
+            <h1>{ titleHeading }</h1>
+            <div>Просто текст</div>
             <hr/>
             <HelloWorld />
         </div>

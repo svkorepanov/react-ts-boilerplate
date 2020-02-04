@@ -3,7 +3,7 @@ import { createCn } from 'bem-react-classname';
 
 import './hello-world.css';
 
-type TProps = {
+export type TProps = {
     someProp?: string;
 }
 
