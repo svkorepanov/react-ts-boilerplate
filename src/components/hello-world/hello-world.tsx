@@ -5,7 +5,7 @@ import './hello-world.css';
 
 export type TProps = {
     someProp?: string;
-}
+};
 
 const cn = createCn('hello-world');
 
