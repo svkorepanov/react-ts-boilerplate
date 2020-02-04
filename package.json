@@ -52,8 +52,8 @@
     "react-dom": "16.12.0"
   },
   "lint-staged": {
-    "src/**/*.(js|jsx|ts|tsx)": "npm run eslint",
-    "*.css": "stylelint"
+    "src/**/*.(js|jsx|ts|tsx)": "yarn lint",
+    "*.css": "yarn stylelint"
   },
   "husky": {
     "hooks": {
