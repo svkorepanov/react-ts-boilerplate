@@ -55,10 +55,7 @@
     "pre-commit": "tsc --noEmit && lint-staged"
   },
   "lint-staged": {
-    "concurent": false,
-    "linters": {
-      "src/**/*.(js|jsx|ts|tsx)": "npm run eslint",
-      "*.css": "stylelint"
-    }
+    "src/**/*.(js|jsx|ts|tsx)": "npm run eslint",
+    "*.css": "stylelint"
   }
 }
