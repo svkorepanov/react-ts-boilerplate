@@ -76,7 +76,10 @@ module.exports = {
         filename: filename('js')
     },
     resolve: {
-        extensions: ['.js', '.jsx', '.json', '.ts', '.tsx']
+        extensions: ['.js', '.jsx', '.json', '.ts', '.tsx'],
+        alias: {
+            '@': path.resolve(__dirname, 'src')
+        }
     },
     optimization: optimization(),
     module: {

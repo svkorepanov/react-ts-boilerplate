@@ -5,7 +5,13 @@ import { App } from './components/app/app';
 
 const REACT_HEADING = 'REACT + TS husky';
 
+function getWrappedApp(): JSX.Element {
+    return (
+        <App titleHeading={ REACT_HEADING } />
+    );
+}
+
 ReactDOM.render(
-    <App titleHeading={ REACT_HEADING } />,
+    getWrappedApp(),
     document.getElementById('app'),
 );
