@@ -48,7 +48,7 @@ module.exports = {
         }
     ],
     rules: {
-        'indent': [ 'error', 4 ],
+        'indent': [ 'off' ],
         'linebreak-style': [ 'error', 'unix' ],
         'quotes': [ 'error', 'single' ],
         'semi': [ 'error', 'always' ],
@@ -153,7 +153,7 @@ module.exports = {
         '@typescript-eslint/prefer-readonly': 'warn', // Requires that private members are marked as readonly if they're never modified outside of the constructor
         '@typescript-eslint/no-explicit-any': 'off',
         '@typescript-eslint/camelcase': ['error', { 'properties': 'always' }],
-        '@typescript-eslint/explicit-function-return-type': ['error', { allowExpressions: true }],
+        '@typescript-eslint/explicit-function-return-type': ['off'],
         '@typescript-eslint/interface-name-prefix': 'off',
         '@typescript-eslint/no-unused-vars': ['error', { 'argsIgnorePattern': '^_', 'varsIgnorePattern': '^_$' }],
 

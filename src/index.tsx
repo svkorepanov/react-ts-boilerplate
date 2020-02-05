@@ -1,17 +1,23 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
 
 import { App } from './components/app/app';
 
-const REACT_HEADING = 'REACT + TS husky';
+import { configureStore } from './configure-store';
 
-function getWrappedApp(): JSX.Element {
+function getWrappedApp(store): JSX.Element {
     return (
-        <App titleHeading={ REACT_HEADING } />
+        <Provider store={ store }>
+            <App />
+        </Provider>
     );
 }
+{
+    const store = configureStore();
 
-ReactDOM.render(
-    getWrappedApp(),
-    document.getElementById('app'),
-);
+    ReactDOM.render(
+        getWrappedApp(store),
+        document.getElementById('app'),
+    );
+}
