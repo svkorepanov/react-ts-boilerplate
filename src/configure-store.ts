@@ -1,7 +1,9 @@
 import { applyMiddleware, compose, createStore } from 'redux';
 import createSagaMiddleware from 'redux-saga';
+import { createBrowserHistory, createMemoryHistory } from 'history';
+import { routerMiddleware } from 'connected-react-router';
 
-import { rootReducer } from '@/store/';
+import { createRootReducer } from '@/store/';
 import { sagas } from '@/sagas';
 
 declare global {
@@ -16,11 +18,16 @@ const composeEnhancers = IS_BROWSER && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE
 
 const sagaMiddleware = createSagaMiddleware();
 
+export const routerHistory = IS_BROWSER
+    ? createBrowserHistory({ basename: '/' })
+    : createMemoryHistory();
+
 export const configureStore = (preloadedeState = {}) => {
     const store = createStore(
-        rootReducer,
+        createRootReducer(routerHistory),
         preloadedeState,
         composeEnhancers(applyMiddleware(
+            routerMiddleware(routerHistory),
             sagaMiddleware,
         )));
 

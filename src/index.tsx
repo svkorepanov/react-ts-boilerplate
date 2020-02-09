@@ -1,18 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
+import { ConnectedRouter } from 'connected-react-router';
 
-import { App } from './components/app/app';
+import { Root } from '@/routing/root';
 
-import { configureStore } from './configure-store';
+import { configureStore, routerHistory } from './configure-store';
 
 function getWrappedApp(store): JSX.Element {
     return (
         <Provider store={ store }>
-            <App />
+            <ConnectedRouter history={ routerHistory }>
+                <Root />
+            </ConnectedRouter>
         </Provider>
     );
 }
+
 {
     const store = configureStore();
 

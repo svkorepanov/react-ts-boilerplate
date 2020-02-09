@@ -7,12 +7,12 @@ import * as actions from './actions';
 type TActions = ReturnType<InferValueTypes<typeof actions>>;
 
 export type TAppState = DeepReadonly<{
-    isAppIited: boolean;
+    isAppInited: boolean;
     isError: boolean;
 }>;
 
 const initialState: TAppState = {
-    isAppIited: false,
+    isAppInited: false,
     isError: false,
 };
 
@@ -21,7 +21,7 @@ export const appReducer = (state = initialState, action: TActions): TAppState =>
         case AppActionTypes.INIT_APP:
             return {
                 ...state,
-                isAppIited: true,
+                isAppInited: true,
             };
 
         case AppActionTypes.INIT_APP_ERROR:

@@ -7,3 +7,7 @@ export const initApp = () => {
 export const initAppError = (error: any) => {
     return { type: AppActionTypes.INIT_APP_ERROR, error };
 };
+
+export const redirect = (path: string, isExternal = false) => {
+    return { type: AppActionTypes.REDIRECT, path, isExternal };
+};
