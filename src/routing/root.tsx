@@ -11,7 +11,7 @@ const Root: React.FC = () => {
 
     useEffect(() => {
         put(initApp());
-    }, []);
+    }, [put]);
 
     return (
         <Switch>
