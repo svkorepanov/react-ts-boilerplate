@@ -1,8 +1,6 @@
 build site:
   image: node:10
   stage: build
-  before_script:
-    - npm i -g yarn
   script:
     - yarn
     - yarn build
