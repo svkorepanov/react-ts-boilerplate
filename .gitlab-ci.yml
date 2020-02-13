@@ -2,6 +2,9 @@ build site:
   image: node:10
   stage: build
   script:
+    - echo "NODE VERSION" && node --version
+    - echo "NPM VERSION" && npm --version
+    - echo "YARN VERSION" && yarn --version
     - yarn
     - yarn build
   artifacts:
