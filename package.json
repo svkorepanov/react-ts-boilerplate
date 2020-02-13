@@ -10,7 +10,9 @@
     "build": "cross-env NODE_ENV=production webpack",
     "start": "cross-env NODE_ENV=development webpack-dev-server",
     "lint": "eslint --cache --ext .js,.jsx,.ts,.tsx src",
-    "lint:dump": "eslint --print-config ./.eslintrc.json"
+    "lint:dump": "eslint --print-config ./.eslintrc.json",
+    "stylelint": "stylelint src/**/*.css",
+    "test": "tsc --noEmit && yarn lint && yarn stylelint"
   },
   "devDependencies": {
     "@types/history": "4.7.5",

@@ -1,0 +1,32 @@
+build site:
+  image: node:10
+  stage: build
+  before_script:
+    - npm i -g yarn
+  script:
+    - yarn
+    - yarn build
+  artifacts:
+    expire_in: 1 week
+    paths:
+      - dist
+
+tests:
+  image: node:10
+  stage: test
+  before_script:
+    - npm i -g yarn
+  script:
+    - yarn
+    - yarn test
+
+deploy:
+  image: alpine
+  stage: deploy
+  script:
+    - apk add --no-cache rsync openssh
+    - mkdir -p ~/.ssh
+    - echo "$SSH_PRIVATE_KEY" >> ~/.ssh/id_dsa
+    - chmod 600 ~/.ssh/id_dsa
+    - echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config
+    - rsync -rav --delete dist/ user@server.com:/your/project/path/
