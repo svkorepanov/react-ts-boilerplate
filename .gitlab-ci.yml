@@ -10,13 +10,11 @@ build site:
   artifacts:
     expire_in: 1 week
     paths:
-      - dist
+      - build
 
 tests:
   image: node:10
   stage: test
-  before_script:
-    - npm i -g yarn
   script:
     - yarn
     - yarn test
@@ -30,4 +28,4 @@ deploy:
     - echo "$SSH_PRIVATE_KEY" >> ~/.ssh/id_dsa
     - chmod 600 ~/.ssh/id_dsa
     - echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config
-    - rsync -rav --delete dist/ user@server.com:/your/project/path/
+    - rsync -rav --delete build/ user@server.com:/your/project/path/
